@@ -1,10 +1,21 @@
 /** @format */
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { fetchPhotos } from "../services/requests";
+import { Lightbox } from "react-modal-image";
 
 const Photos = () => {
   const [photos, setPhotos] = useState([]);
+  const [currentImageUrl, setCurrentImageUrl] = useState("");
+  const [isViewerOpen, setIsViewerOpen] = useState(false);
+  const openImageViewer = (photo) => {
+    setCurrentImageUrl(photo);
+    setIsViewerOpen(true);
+  };
+
+  const closeImageViewer = () => {
+    setIsViewerOpen(false);
+  };
   useEffect(() => {
     async function getPhotos() {
       const results = await fetchPhotos();
@@ -18,6 +29,7 @@ const Photos = () => {
         {photos.map((photo, index) => (
           <img
             className='w-full h-full object-cover'
+            onClick={() => openImageViewer(photo.urls)}
             src={photo.urls.thumb}
             width='300'
             key={index}
@@ -26,6 +38,13 @@ const Photos = () => {
           />
         ))}
       </div>
+      {isViewerOpen && (
+        <Lightbox
+          medium={currentImageUrl.raw}
+          large={currentImageUrl.full}
+          onClose={closeImageViewer}
+        />
+      )}
     </div>
   );
 };
