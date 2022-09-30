@@ -16,7 +16,7 @@ const Photos = () => {
     setIsViewerOpen(false);
   };
   useEffect(() => {
-    fetch("/api")
+    fetch("http://localhost:8080/api")
       .then((response) => response.json())
       .then((data) => {
         setPhotos(data);
