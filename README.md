@@ -4,13 +4,13 @@ The ability to click a thumbnail and open it fullscreen
 # Screanshot
 
 Grid :
-![Screenshot](/screanshot/grid.png)
+![Screenshot](/screenshot/grid.png)
 
 Medium:
-![Screenshot](/screanshot/grid.png)
+![Screenshot](/screenshot/medium.png)
 
 Large
-![Screenshot](/screanshot/grid.png)
+![Screenshot](/screenshot/large.png)
 
 # prerequisite
 
