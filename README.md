@@ -1,4 +1,4 @@
-# Rum App
+# Run App
 
 docker-compose up
 
